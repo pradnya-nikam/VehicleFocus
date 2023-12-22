@@ -9,30 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
   
-  let cars = Vehicle.cars
+  @State private var selectedTab = 0
 
   var body: some View {
-    ScrollView(.vertical){
-      ForEach(0..<5) { _ in
-        VStack() {
-
-          //Rows
-        ScrollView(.horizontal) {
-          HStack(alignment: .center, spacing: 200) {
-              ForEach(cars, id: \.name) { car in
-                VehicleView(vehicle: car)
-              }
-            }
-          }
-
-        .scrollClipDisabled()
-
-          Divider()
-        }
+    VStack {
+      Picker("", selection: $selectedTab) {
+        Text("Red").tag(0)
+        Text("Green").tag(1)
+        Text("Blue").tag(2)
       }
-    }
-    .scrollClipDisabled()
+      .pickerStyle(.segmented)
 
+      Spacer()
+        .frame(height: 100)
+
+      VehicleGrid()
+
+    }
   }
 }
 
