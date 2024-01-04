@@ -23,4 +23,22 @@ struct Vehicle {
     Vehicle(name: "Jeep9", imageName: "car1"),
     Vehicle(name: "Jeep10", imageName: "car1")
   ]
+
+  public static let grid: [(String, [Vehicle])] = [
+    ("Cars", cars),
+    ("Construction", cars),
+    ("Bicycles", cars),
+    ("Scooters", cars),
+    ("Race car", cars),
+    ("Aeroplanes", cars),
+    ("Trucks", cars)
+  ]
+
+//     public static let grid: [String: [Vehicle]] = [
+//      "cars" : cars,
+//      "trucks": cars,
+//      "aeroplanes": cars,
+//      "construction": cars,
+//      "three-wheelers": cars
+//     ]
 }

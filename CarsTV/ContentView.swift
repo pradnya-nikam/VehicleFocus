@@ -18,6 +18,8 @@ struct ContentView: View {
         Text("Green").tag(1)
         Text("Blue").tag(2)
       }
+      .fixedSize()
+      .frame(width: 500)
       .pickerStyle(.segmented)
 
       Spacer()
