@@ -19,11 +19,12 @@ struct VehicleView: View {
             .aspectRatio(contentMode: .fit)
 
           Text(vehicle.name)
-            .dynamicTypeSize(.xSmall)
+            .font(.caption)
         }
       }
       .buttonStyle(.plain)
       .frame(height: 200)
+      .padding(.bottom, 30)
 //      .frame(width: 150)
     }
 }

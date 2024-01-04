@@ -12,6 +12,11 @@ struct TrackView: View {
     VStack{
       Text("Track")
         .font(.title2)
+      Divider()
+        .background(.white)
+      Divider()
+        .background(.white)
+
       Image("road")
         .resizable()
         .aspectRatio(contentMode: .fit)

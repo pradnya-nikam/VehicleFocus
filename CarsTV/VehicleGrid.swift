@@ -13,26 +13,39 @@ struct VehicleGrid: View {
 
     var body: some View {
       ScrollView(.vertical) {
-        ForEach(gridData, id: \.0) { vehicleRow in
+        VStack(alignment: .leading) {
+          Text("All Vehicles")
+            .font(.title2)
 
-          VStack(alignment:.leading) {
+          Divider()
+            .background(.white)
+          Divider()
+            .background(.white)
+            .padding(.bottom)
 
-            Text(vehicleRow.0)
-              .font(.title3)
-              .padding(.bottom, 30)
+          ForEach(gridData, id: \.0) { vehicleRow in
 
-            //Rows
-            ScrollView(.horizontal) {
-              HStack(alignment: .center, spacing: 200) {
-                ForEach(vehicleRow.1, id: \.name) { car in
-                  VehicleView(vehicle: car)
+            VStack(alignment:.leading) {
+
+              //Section title
+              Text(vehicleRow.0)
+                .font(.body)
+                .padding(.bottom, 10)
+
+              //Rows
+              ScrollView(.horizontal) {
+                HStack(alignment: .center, spacing: 60) {
+                  ForEach(vehicleRow.1, id: \.name) { car in
+                    VehicleView(vehicle: car)
+                  }
                 }
+                .padding(.leading, 60)
               }
+              .scrollClipDisabled()
+
+              //            Divider()
+
             }
-            .scrollClipDisabled()
-
-            Divider()
-
           }
         }
       }
