@@ -15,7 +15,7 @@ struct VehicleGrid: View {
       ScrollView(.vertical) {
         ForEach(gridData, id: \.0) { vehicleRow in
 
-          VStack(alignment:.l+eading) {
+          VStack(alignment:.leading) {
 
             Text(vehicleRow.0)
               .font(.title3)
@@ -36,7 +36,7 @@ struct VehicleGrid: View {
           }
         }
       }
-      .scrollClipDisabled()
+//      .scrollClipDisabled()
     }
 }
 
