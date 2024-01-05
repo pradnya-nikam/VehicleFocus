@@ -42,3 +42,10 @@ struct Vehicle {
 //      "three-wheelers": cars
 //     ]
 }
+
+extension Vehicle: Hashable, Identifiable {
+  var id: String {
+    return name
+  }
+
+}

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct TrackView: View {
+  @Binding var vehiclesOnTrack: [Vehicle]
+
   var body: some View {
-    VStack{
+    VStack {
       Text("Track")
         .font(.title2)
       Divider()
@@ -17,10 +19,22 @@ struct TrackView: View {
       Divider()
         .background(.white)
 
-      Image("road")
-        .resizable()
-        .aspectRatio(contentMode: .fit)
-
+      ZStack {
+        Image("road")
+          .resizable()
+          .aspectRatio(contentMode: .fit)
+        VStack {
+          ForEach(vehiclesOnTrack) { vehicle in
+            Image(vehicle.imageName)
+              .resizable()
+              .aspectRatio(contentMode: .fit)
+              .rotationEffect(.degrees(270))
+              .padding(.top, 30)
+              .padding(.trailing, 20)
+          }
+          Spacer()
+        }
+      }
     }
     .frame(width: 200)
   }
@@ -28,5 +42,5 @@ struct TrackView: View {
 }
 
 #Preview {
-    TrackView()
+  TrackView(vehiclesOnTrack: .constant([Vehicle(name: "Jeep", imageName: "car7")]))
 }

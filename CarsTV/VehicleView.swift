@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct VehicleView: View {
+
   let vehicle: Vehicle
+  @Binding var selectedVehicle: Vehicle?
     var body: some View {
       Button(action: {
-
+        selectedVehicle = vehicle
       }){
         VStack {
           Image(vehicle.imageName)
@@ -31,6 +33,7 @@ struct VehicleView: View {
 
 #Preview {
   VehicleView(
-    vehicle: Vehicle(name: "Car", imageName: "car1")
+    vehicle: Vehicle(name: "Car", imageName: "car1"),
+    selectedVehicle: .constant(nil)
   )
 }

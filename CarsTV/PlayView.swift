@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct PlayView: View {
+  @State var selectedVehicle: Vehicle?
+  @State var vehiclesOnTrack: [Vehicle] = []
     var body: some View {
       HStack {
-        VehicleGrid()
+        VehicleGrid(selectedVehicle: $selectedVehicle)
         Divider()
           .background(.white)
           .padding(50)
-        TrackView()
+        TrackView(vehiclesOnTrack: $vehiclesOnTrack)
+      }
+      .onChange(of: selectedVehicle) {
+        guard let selectedVehicle else { return }
+        vehiclesOnTrack.append(selectedVehicle)
       }
     }
 }

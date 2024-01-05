@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct VehicleGrid: View {
-  let cars = Vehicle.cars
-  let gridData = Vehicle.grid
 
-    var body: some View {
+  let gridData = Vehicle.grid
+  @FocusState var focusedVehicle: Vehicle?
+  @Binding var selectedVehicle: Vehicle?
+
+  var body: some View {
       ScrollView(.vertical) {
         VStack(alignment: .leading) {
           Text("All Vehicles")
@@ -35,15 +37,14 @@ struct VehicleGrid: View {
               //Rows
               ScrollView(.horizontal) {
                 HStack(alignment: .center, spacing: 60) {
-                  ForEach(vehicleRow.1, id: \.name) { car in
-                    VehicleView(vehicle: car)
+                  ForEach(vehicleRow.1) { vehicle in
+                    VehicleView(vehicle: vehicle, selectedVehicle: $selectedVehicle)
+                      .focused($focusedVehicle, equals: vehicle)
                   }
                 }
                 .padding(.leading, 60)
               }
               .scrollClipDisabled()
-
-              //            Divider()
 
             }
           }
@@ -54,5 +55,5 @@ struct VehicleGrid: View {
 }
 
 #Preview {
-    VehicleGrid()
+  VehicleGrid(selectedVehicle: .constant(nil))
 }
