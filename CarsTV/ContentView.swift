@@ -12,17 +12,19 @@ struct ContentView: View {
   @State private var selectedTab = 0
 
   var body: some View {
-    VStack {
-      Picker("", selection: $selectedTab) {
-        Text("Play").tag(0)
-        Text("Settings").tag(1)
-      }
-      .fixedSize()
-      .frame(width: 900)
-      .pickerStyle(.segmented)
+//    VStack(alignment:.leading) {
+//      Text("Vroom💨")
+//        .font(.title)
+//      Picker("", selection: $selectedTab) {
+//        Text("Play").tag(0)
+//        Text("Settings").tag(1)
+//      }
+//      .fixedSize()
+//      .frame(width: 900)
+//      .pickerStyle(.segmented)
 
-      Spacer()
-        .frame(height: 100)
+//      Spacer()
+//        .frame(height: 100)
       if selectedTab == 0 {
         PlayView()
       }
@@ -30,7 +32,7 @@ struct ContentView: View {
         SettingsView()
       }
     }
-  }
+//  }
 }
 
 #Preview {

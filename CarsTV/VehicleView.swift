@@ -27,7 +27,6 @@ struct VehicleView: View {
       .buttonStyle(.plain)
       .frame(height: 200)
       .padding(.bottom, 30)
-//      .frame(width: 150)
     }
 }
 

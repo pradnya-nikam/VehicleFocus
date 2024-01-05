@@ -16,14 +16,14 @@ struct VehicleGrid: View {
   var body: some View {
       ScrollView(.vertical) {
         VStack(alignment: .leading) {
-          Text("All Vehicles")
-            .font(.title2)
-
-          Divider()
-            .background(.white)
-          Divider()
-            .background(.white)
-            .padding(.bottom)
+//          Text("All Vehicles")
+//            .font(.title2)
+//
+//          Divider()
+//            .background(.white)
+//          Divider()
+//            .background(.white)
+//            .padding(.bottom)
 
           ForEach(gridData, id: \.0) { vehicleRow in
 

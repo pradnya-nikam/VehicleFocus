@@ -11,18 +11,34 @@ struct PlayView: View {
   @State var selectedVehicle: Vehicle?
   @State var vehiclesOnTrack: [Vehicle] = []
     var body: some View {
-      HStack {
-        VehicleGrid(selectedVehicle: $selectedVehicle)
+      VStack(alignment:.leading) {
+        HStack {
+          Text("Vroom💨")
+            .font(.title)
+          Spacer()
+          Button {
+            resetTrack()
+          } label: {
+            Text("Reset")
+          }
+        }.focusSection()
+        TrackView(vehiclesOnTrack: $vehiclesOnTrack)
         Divider()
           .background(.white)
-          .padding(50)
-        TrackView(vehiclesOnTrack: $vehiclesOnTrack)
+          .ignoresSafeArea()
+//          .padding(50)
+
+        VehicleGrid(selectedVehicle: $selectedVehicle)
       }
       .onChange(of: selectedVehicle) {
         guard let selectedVehicle else { return }
         vehiclesOnTrack.append(selectedVehicle)
       }
     }
+
+  func resetTrack() {
+    vehiclesOnTrack = []
+  }
 }
 
 #Preview {

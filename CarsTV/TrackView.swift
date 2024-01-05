@@ -12,33 +12,40 @@ struct TrackView: View {
 
   var body: some View {
     VStack {
-      Text("Track")
-        .font(.title2)
-      Divider()
-        .background(.white)
-      Divider()
-        .background(.white)
+//      Text("Track")
+//        .font(.title2)
+//      Divider()
+//        .background(.white)
+//      Divider()
+//        .background(.white)
+//        .padding()
 
-      ZStack {
-        Image("road")
-          .resizable()
-          .aspectRatio(contentMode: .fit)
-        VStack {
+      ZStack(alignment: Alignment(horizontal: .leading, vertical: .center))
+      {
+        HStack(spacing: 0) {
+          Image("road")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 190)
+            .padding(0)
+          Image("road")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(height: 190)
+            .padding(0)
+        }
+
+        HStack(alignment: .top) {
           ForEach(vehiclesOnTrack) { vehicle in
-            Image(vehicle.imageName)
-              .resizable()
-              .aspectRatio(contentMode: .fit)
-              .rotationEffect(.degrees(270))
-              .padding(.top, 30)
-              .padding(.trailing, 20)
+            TrackVehicleView(vehicle: vehicle)
           }
           Spacer()
         }
       }
     }
-    .frame(width: 200)
+//    .frame(width: 200)
   }
-  
+
 }
 
 #Preview {
