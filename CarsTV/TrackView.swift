@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TrackView: View {
   @Binding var vehiclesOnTrack: [Vehicle]
+  @FocusedValue(\.vehicleValue) var focusedVehicle
 
   var body: some View {
     VStack {
@@ -38,6 +39,15 @@ struct TrackView: View {
         HStack(alignment: .top) {
           ForEach(vehiclesOnTrack) { vehicle in
             TrackVehicleView(vehicle: vehicle)
+          }
+          if let focusedVehicle = focusedVehicle {
+            TrackVehicleView(vehicle: focusedVehicle)
+              .opacity(0.4)
+              .overlay {
+                Rectangle()
+                  .strokeBorder(style: StrokeStyle(lineWidth: 4, dash: [10]))
+
+              }
           }
           Spacer()
         }

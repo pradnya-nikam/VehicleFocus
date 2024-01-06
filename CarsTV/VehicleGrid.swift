@@ -10,7 +10,6 @@ import SwiftUI
 struct VehicleGrid: View {
 
   let gridData = Vehicle.grid
-  @FocusState var focusedVehicle: Vehicle?
   @Binding var selectedVehicle: Vehicle?
 
   var body: some View {
@@ -39,7 +38,7 @@ struct VehicleGrid: View {
                 HStack(alignment: .center, spacing: 60) {
                   ForEach(vehicleRow.1) { vehicle in
                     VehicleView(vehicle: vehicle, selectedVehicle: $selectedVehicle)
-                      .focused($focusedVehicle, equals: vehicle)
+                      .focusedValue(\.vehicleValue, vehicle)
                   }
                 }
                 .padding(.leading, 60)

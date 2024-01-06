@@ -7,34 +7,61 @@
 
 import SwiftUI
 
+struct FocusedVehicleValue: FocusedValueKey {
+  typealias Value = Vehicle
+}
+extension FocusedValues {
+  var vehicleValue: FocusedVehicleValue.Value? {
+    get { self[FocusedVehicleValue.self] }
+    set { self[FocusedVehicleValue.self] = newValue }
+  }
+}
+
 struct PlayView: View {
   @State var selectedVehicle: Vehicle?
   @State var vehiclesOnTrack: [Vehicle] = []
-    var body: some View {
+
+  var body: some View {
       VStack(alignment:.leading) {
-        HStack {
-          Text("Vroom💨")
-            .font(.title)
-          Spacer()
-          Button {
-            resetTrack()
-          } label: {
-            Text("Reset")
-          }
-        }.focusSection()
+
+        header
+
         TrackView(vehiclesOnTrack: $vehiclesOnTrack)
+
         Divider()
           .background(.white)
           .ignoresSafeArea()
-//          .padding(50)
+          .padding(50)
 
         VehicleGrid(selectedVehicle: $selectedVehicle)
+
       }
       .onChange(of: selectedVehicle) {
         guard let selectedVehicle else { return }
         vehiclesOnTrack.append(selectedVehicle)
       }
     }
+
+  var header: some View {
+    HStack {
+      Text("Vroom💨")
+        .font(.title)
+      Spacer()
+      Button {
+        resetTrack()
+      } label: {
+        Text("Start")
+      }
+      .disabled(vehiclesOnTrack.isEmpty)
+
+      Button {
+        resetTrack()
+      } label: {
+        Text("Reset")
+      }
+    }
+    .focusSection()
+  }
 
   func resetTrack() {
     vehiclesOnTrack = []
