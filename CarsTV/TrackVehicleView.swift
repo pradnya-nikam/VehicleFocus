@@ -16,7 +16,8 @@ struct TrackVehicleView: View {
       .aspectRatio(contentMode: .fit)
       .padding(.top, 30)
       .padding(.trailing, 12)
-      .frame(height: 200)
+      .frame(height: 180)
+      .frame(width: 300)
   }
 }
 

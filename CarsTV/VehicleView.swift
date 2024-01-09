@@ -16,6 +16,7 @@ struct VehicleView: View {
         selectedVehicle = vehicle
       }){
         VStack {
+          Spacer()
           Image(vehicle.imageName)
             .resizable()
             .aspectRatio(contentMode: .fit)
@@ -26,6 +27,7 @@ struct VehicleView: View {
       }
       .buttonStyle(.plain)
       .frame(height: 200)
+      .frame(width: 320)
       .padding(.bottom, 30)
     }
 }
