@@ -10,42 +10,63 @@ struct Vehicle {
   let name: String
   let imageName: String
   public static let cars = [
-    Vehicle(name: "Car1", imageName: "car1"),
-    Vehicle(name: "Jeep", imageName: "car2"),
-    Vehicle(name: "Jeep1", imageName: "car3"),
-    Vehicle(name: "Jeep2", imageName: "car4"),
-    Vehicle(name: "Jeep3", imageName: "car5"),
-    Vehicle(name: "Jeep4", imageName: "car6"),
-    Vehicle(name: "Jeep5", imageName: "car7"),
-    Vehicle(name: "Jeep6", imageName: "car8"),
-    Vehicle(name: "Jeep7", imageName: "car10"),
-//    Vehicle(name: "Jeep8", imageName: "car10")
-//    Vehicle(name: "Jeep9", imageName: "car1"),
-//    Vehicle(name: "Jeep10", imageName: "car1")
+    Vehicle(name: "Car", imageName: "car"),
+    Vehicle(name: "Police Car", imageName: "police-car"),
+    Vehicle(name: "Jeep", imageName: "jeep"),
+    Vehicle(name: "Race Car", imageName: "race-car"),
+    Vehicle(name: "Sports Car", imageName: "sports-car"),
+    Vehicle(name: "Convertible", imageName: "convertible"),
+    Vehicle(name: "Taxi", imageName: "taxi")
   ]
+
+  public static let construction = [
+    Vehicle(name: "Crane", imageName: "crane"),
+    Vehicle(name: "Excavator", imageName: "excavator"),
+    Vehicle(name: "Cement Mixer", imageName: "cement-mixer"),
+    Vehicle(name: "Dump Truck", imageName: "dump-truck"),
+    Vehicle(name: "Bulldozer", imageName: "bulldozer"),
+    Vehicle(name: "Tractor", imageName: "tractor")
+  ]
+
+  public static let trucks = [
+    Vehicle(name: "Food Truck", imageName: "food-truck"),
+    Vehicle(name: "Fire Truck", imageName: "fire-truck"),
+    Vehicle(name: "Car Hauler", imageName: "car-hauler"),
+    Vehicle(name: "Dump Truck", imageName: "dump-truck"),
+    Vehicle(name: "Ice Cream Truck", imageName: "ice-cream-truck"),
+    Vehicle(name: "Oil Truck", imageName: "oil-truck")
+  ]
+
+  public static let airborne = [
+    Vehicle(name: "Aeroplane", imageName: "airplane"),
+    Vehicle(name: "Helicopter", imageName: "helicopter"),
+    Vehicle(name: "Hot Air Balloon", imageName: "hot-air-balloon"),
+    Vehicle(name: "Sea Plane", imageName: "sea-plane"),
+    Vehicle(name: "Rocket", imageName: "rocket"),
+    Vehicle(name: "Fighter Plane", imageName: "fighter-plane")
+  ]
+
+  public static let twoWheeler = [
+    Vehicle(name: "Motorbike", imageName: "motorbike"),
+    Vehicle(name: "Scooter", imageName: "scooter"),
+    Vehicle(name: "Harley", imageName: "harley"),
+    Vehicle(name: "Bicycle", imageName: "bicycle"),
+    Vehicle(name: "Kids Scooter", imageName: "kids-scooter"),
+    Vehicle(name: "Dirt Bike", imageName: "dirt-bike")
+  ]
+
 
   public static let grid: [(String, [Vehicle])] = [
     ("Cars", cars),
-    ("Construction", cars),
-    ("Bicycles", cars),
-    ("Scooters", cars),
-    ("Race car", cars),
-    ("Aeroplanes", cars),
-    ("Trucks", cars)
+    ("Construction", construction),
+    ("Trucks", trucks),
+    ("Airborne", airborne),
+    ("Two Wheelers", twoWheeler),
   ]
-
-//     public static let grid: [String: [Vehicle]] = [
-//      "cars" : cars,
-//      "trucks": cars,
-//      "aeroplanes": cars,
-//      "construction": cars,
-//      "three-wheelers": cars
-//     ]
 }
 
 extension Vehicle: Hashable, Identifiable {
   var id: String {
     return name
   }
-
 }
