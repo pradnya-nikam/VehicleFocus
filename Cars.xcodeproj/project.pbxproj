@@ -69,6 +69,7 @@
 		5031FECA2B46AA5300D2D5E2 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		5031FECC2B46AA9E00D2D5E2 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5031FECE2B47C8D600D2D5E2 /* TrackVehicleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackVehicleView.swift; sourceTree = "<group>"; };
+		50A7757A2B4ABA6500BB55CD /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../../MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		50C1BB2E2B3198850050BF03 /* Cars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C1BB312B3198850050BF03 /* CarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsApp.swift; sourceTree = "<group>"; };
 		50C1BB332B3198850050BF03 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -204,6 +205,7 @@
 		50C1BB612B31993C0050BF03 /* CarsTV */ = {
 			isa = PBXGroup;
 			children = (
+				50A7757A2B4ABA6500BB55CD /* MyPlayground.playground */,
 				50C1BB622B31993C0050BF03 /* CarsTVApp.swift */,
 				50C1BB642B31993C0050BF03 /* ContentView.swift */,
 				50C1BB662B31993E0050BF03 /* Assets.xcassets */,
