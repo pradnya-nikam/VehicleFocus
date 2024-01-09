@@ -47,24 +47,33 @@ struct PlayView: View {
       Text("Vroom💨")
         .font(.title)
       Spacer()
-      Button {
-        resetTrack()
-      } label: {
-        Text("Start")
-      }
+      Button(
+        action: {
+          start()
+        }, 
+        label: {
+          Text("Start")
+        }
+      )
       .disabled(vehiclesOnTrack.isEmpty)
 
-      Button {
-        resetTrack()
-      } label: {
-        Text("Reset")
-      }
+      Button(
+        action: {
+          resetTrack()
+        },
+        label: {
+          Text("Reset")
+        }
+      )
     }
     .focusSection()
   }
 
   func resetTrack() {
     vehiclesOnTrack = []
+  }
+
+  func start() {
   }
 }
 
