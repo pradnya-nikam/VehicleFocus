@@ -20,7 +20,7 @@ extension FocusedValues {
 struct PlayView: View {
   @State var selectedVehicle: Vehicle?
   @State var vehiclesOnTrack: [Vehicle] = []
-
+  @Namespace var mainNamespace
   var body: some View {
       VStack(alignment:.leading) {
 
@@ -34,12 +34,14 @@ struct PlayView: View {
           .padding(50)
 
         VehicleGrid(selectedVehicle: $selectedVehicle)
+          .prefersDefaultFocus(in: mainNamespace)
 
       }
       .onChange(of: selectedVehicle) {
         guard let selectedVehicle else { return }
         vehiclesOnTrack.append(selectedVehicle)
       }
+      .focusScope(mainNamespace)
     }
 
   var header: some View {
